@@ -3,7 +3,7 @@
     <form #form="ngForm" novalidate>
         <div class="form-group" [class.has-error]="firstName.invalid && firstName.touched">
             <label class="control-label">First Name</label>
-            <input #firstName="ngModel" pattern="...+" type="text" class="form-control"  name="firstName" 
+            <input #firstName="ngModel" pattern="...+" required type="text" class="form-control"  name="firstName" 
                     [(ngModel)]="model.firstName" required/>
                     <div *ngIf="firstName.invalid && firstName.touched" class="alert alert-danger">
                         First Name is a required field, and must be at least 3 characters in length.
@@ -33,8 +33,9 @@
 
         <div class="form-group" [class.has-error] = "hasPrimaryLanguageError">
             <label class="control-label">Primary Language</label>
-            <select class="form-control" name="primaryLanguage"
-            (blur)="validatePrimaryLanguage($event)"
+            <select class="form-control" name="primaryLanguage" #primaryLanguage
+            (blur)="validatePrimaryLanguage(primaryLanguage.value)"
+            (change)="validatePrimaryLanguage(primaryLanguage.value)"
                 [(ngModel)]="model.primaryLanguage">
                 <option value="default">Select a Language...</option>
                 <option *ngFor="let lang of languages">
@@ -50,7 +51,9 @@
             <label>Date Hired</label>
             <input type="date" name="hiredate" class="form-control" ngModel/>
         </div>-->
-        <button class="btn btn-primary" type="submit">Ok</button>
+        <button class="btn btn-primary" type="submit"
+            [disabled]="form.invalid">Ok</button>
+        <h3>{{ form.valid }}</h3>
     </form>
     Model: {{ model | json }}
     <br/> Angular: {{ form.value | json }}
