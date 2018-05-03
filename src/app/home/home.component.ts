@@ -9,7 +9,10 @@ import { NgForm } from '@angular/forms';
   templateUrl: './home.component.html'
 })
 export class HomeComponent {
-  startDate = new Date();  
+  startDate: Date = new Date();  
+  startTime: Date = new Date();
+  singleModel: string = 'Off';
+  checkModel: any = { left: false, middle: true, right: false };
   languages = [];
   model = new Employee('', '', true, '', 'default');
   hasPrimaryLanguageError = false;

@@ -15,7 +15,7 @@ import { RepoDetailComponent } from './github/repo-detail/repo-detail.component'
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { ContactComponent } from './contact/contact.component';
 import { FormPoster } from './services/form-poster.services';
-import { BsDatepickerModule } from 'ngx-bootstrap';
+import { BsDatepickerModule, TimepickerModule, ButtonsModule } from 'ngx-bootstrap';
 
 
 @NgModule({
@@ -30,6 +30,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap';
   ],
   imports: [  
     BsDatepickerModule.forRoot(),  
+    TimepickerModule.forRoot(),
+    ButtonsModule.forRoot(),
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,

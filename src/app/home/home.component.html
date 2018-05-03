@@ -2,17 +2,45 @@
 <div class="container">
     <form>
         <div class="row">
-             <div class="col-xs-12 col-12 col-md-4 form-group">
-            <input type="text"
-                   class="form-control"
-                   bsDatepicker
-                   name="startDate"
-                   [(ngModel)]="startDate">
-          </div>
-          <div class="col-xs-12 col-12 col-md-3 form-group">
-            <button class="btn btn-success" (click)="dp.toggle()">Date Picker</button>
-          </div>
-        </div>       
+            <div class="col-xs-12 col-12 col-md-4 form-group">
+                <input type="text" class="form-control" bsDatepicker name="startDate" [(ngModel)]="startDate" [bsConfig]="{ containerClass: 'theme-dark-blue'}">
+            </div>
+            <div class="col-xs-12 col-12 col-md-3 form-group">
+                <!-- <button class="btn btn-success" (click)="dp.toggle()">Date Picker</button> -->
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-12 col-md-4 form-group">
+                <timepicker name="startTime" [(ngModel)]="startDate" [showMinutes]="true" [showSeconds]="true"></timepicker>
+                <pre class="alert alert-info">Time is: {{startDate}}</pre>
+            </div>
+        </div>
+
+        <div class="row">
+            <pre class="card card-block card-header">{{singleModel}}</pre>
+            <button name="btnToggle" type="button" class="btn" [class.btn-primary]="singleModel === 'On' " [(ngModel)]="singleModel"
+                btnCheckbox btnCheckboxTrue="On" btnCheckboxFalse="Off">
+                {{singleModel}}
+            </button>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-12 col-md-4 form-group">
+                <pre class="card card-block card-header">{{checkModel | json}}</pre>
+                <br/>
+            </div>
+            <div class="col-xs-12 col-12 col-md-4 form-group">
+                <div class="btn-group">
+                    <label class="btn btn-primary" name="checkLeft" [(ngModel)]="checkModel.left" btnCheckbox tabindex="0" role="button">Left</label>
+                    <label class="btn btn-primary" name="checkMiddle" [(ngModel)]="checkModel.middle" btnCheckbox tabindex="0" role="button">Middle</label>
+                    <label class="btn btn-primary" name="checkRight" [(ngModel)]="checkModel.right" btnCheckbox tabindex="0" role="button">Right</label>
+                </div>
+            </div>
+        </div>
+
+        
+
     </form>
 </div>
 
