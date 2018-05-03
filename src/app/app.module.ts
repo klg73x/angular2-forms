@@ -15,6 +15,8 @@ import { RepoDetailComponent } from './github/repo-detail/repo-detail.component'
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { ContactComponent } from './contact/contact.component';
 import { FormPoster } from './services/form-poster.services';
+import { BsDatepickerModule } from 'ngx-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { FormPoster } from './services/form-poster.services';
     HomeComponent,
     ContactComponent
   ],
-  imports: [
+  imports: [  
+    BsDatepickerModule.forRoot(),  
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
